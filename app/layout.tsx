@@ -3,6 +3,7 @@ import { Schibsted_Grotesk, Martian_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import LightRays from "@/components/LightRays";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -30,6 +31,9 @@ export default function RootLayout({
 		<html lang="en" className={cn("font-sans", inter.variable)}>
 			<body
 				className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}>
+					
+				<Navbar />
+
 				<div className="absolute insert-0 top-0 z-[-1] min-h-screen w-full">
 					<LightRays
 						raysOrigin="top-center"
@@ -47,9 +51,7 @@ export default function RootLayout({
 						saturation={1}
 					/>
 				</div>
-				<main>
-          {children}
-        </main>
+				<main>{children}</main>
 			</body>
 		</html>
 	);
